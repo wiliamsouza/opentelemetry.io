@@ -38,10 +38,11 @@ with tracer.start_as_current_span("foo"):
 Running the code will output trace information to the console:
 
 ```bash
-AsyncRuntimeContext({'current_span': Span(name="baz", context=SpanContext(trace_id=0x6d9024f9b34a06d9e3051f9cd6a517f3, span_id=0x16d0105b895b3047, trace_state={}))})
-Span(name="baz", context=SpanContext(trace_id=0x6d9024f9b34a06d9e3051f9cd6a517f3, span_id=0x16d0105b895b3047, trace_state={}), kind=SpanKind.INTERNAL, parent=Span(name="bar", context=SpanContext(trace_id=0x6d9024f9b34a06d9e3051f9cd6a517f3, span_id=0xbe35652b6fd923dd, trace_state={})), start_time=2019-11-04T22:18:45.777339Z, end_time=2019-11-04T22:18:45.777447Z)
-Span(name="bar", context=SpanContext(trace_id=0x6d9024f9b34a06d9e3051f9cd6a517f3, span_id=0xbe35652b6fd923dd, trace_state={}), kind=SpanKind.INTERNAL, parent=Span(name="foo", context=SpanContext(trace_id=0x6d9024f9b34a06d9e3051f9cd6a517f3, span_id=0x771d1d72567a2c05, trace_state={})), start_time=2019-11-04T22:18:45.777303Z, end_time=2019-11-04T22:18:45.777598Z)
-Span(name="foo", context=SpanContext(trace_id=0x6d9024f9b34a06d9e3051f9cd6a517f3, span_id=0x771d1d72567a2c05, trace_state={}), kind=SpanKind.INTERNAL, parent=None, start_time=2019-11-04T22:18:45.777260Z, end_time=2019-11-04T22:18:45.777780Z)
+<class 'opentelemetry.context.context.Context'>
+Span(name="baz", context=SpanContext(trace_id=0x1c2fa8c9f31f2b933a3a927d5ce99eca, span_id=0x2045d5b31fe7f7c5, trace_state={}), kind=SpanKind.INTERNAL, parent=Span(name="bar", context=SpanContext(trace_id=0x1c2fa8c9f31f2b933a3a927d5ce99eca, span_id=0xdbbfc1bfca8634f5, trace_state={})), start_time=2020-03-04T07:51:53.547822Z, end_time=2020-03-04T07:51:53.547848Z)
+Span(name="bar", context=SpanContext(trace_id=0x1c2fa8c9f31f2b933a3a927d5ce99eca, span_id=0xdbbfc1bfca8634f5, trace_state={}), kind=SpanKind.INTERNAL, parent=Span(name="foo", context=SpanContext(trace_id=0x1c2fa8c9f31f2b933a3a927d5ce99eca, span_id=0x5582cf9abdc107ae, trace_state={})), start_time=2020-03-04T07:51:53.547801Z, end_time=2020-03-04T07:51:53.547940Z)
+Span(name="foo", context=SpanContext(trace_id=0x1c2fa8c9f31f2b933a3a927d5ce99eca, span_id=0x5582cf9abdc107ae, trace_state={}), kind=SpanKind.INTERNAL, parent=None, start_time=2020-03-04T07:51:53.547773Z, end_time=2020-03-04T07:51:53.548005Z)
+
 ```
 
 # API Reference
