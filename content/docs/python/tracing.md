@@ -20,18 +20,18 @@ From there, you should be able to use opentelemetry as per the following:
 ```python
 from opentelemetry import trace
 from opentelemetry.context import Context
-from opentelemetry.sdk.trace import Tracer
+from opentelemetry.sdk.trace import TracerSource
 from opentelemetry.sdk.trace.export import ConsoleSpanExporter
 from opentelemetry.sdk.trace.export import SimpleExportSpanProcessor
 
-trace.set_preferred_tracer_implementation(lambda T: Tracer())
-tracer = trace.tracer()
-tracer.add_span_processor(
+trace.set_preferred_tracer_source_implementation(lambda T: TracerSource())
+tracer = trace.get_tracer(__name__)
+trace.tracer_source().add_span_processor(
     SimpleExportSpanProcessor(ConsoleSpanExporter())
 )
-with tracer.start_as_current_span('foo'):
-    with tracer.start_as_current_span('bar'):
-        with tracer.start_as_current_span('baz'):
+with tracer.start_as_current_span("foo"):
+    with tracer.start_as_current_span("bar"):
+        with tracer.start_as_current_span("baz"):
             print(Context)
 ```
 
